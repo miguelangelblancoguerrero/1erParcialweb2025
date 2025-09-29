@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="userInfo">
+        <img src="Img/descarga.png" alt="Imagen de inicio de sesión" style="width: 300px;">
+        <h2>Información del usuario</h2>
+        <p><strong>Código:</strong> <span id="userCode"></span></p>
+        <p><strong>Nombre:</strong> <span id="userName"></span></p>
+    </div>
+
+    <div id="gradesTable">
+        <h2>Notas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Curso</th>
+                    <th>CRE</th>
+                    <th>P1</th>
+                    <th>P2</th>
+                    <th>P3</th>
+                    <th>EF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>calculo1</td>
+                    <td id="creGrade"></td>
+                    <td id="p1Grade"></td>
+                    <td id="p2Grade"></td>
+                    <td id="p3Grade"></td>
+                    <td id="efGrade"></td>
+                </tr>
+
+                <tr>
+                    <td>programacion1</td>
+                    <td id="creGrade"></td>
+                    <td id="p1Grade"></td>
+                    <td id="p2Grade"></td>
+                    <td id="p3Grade"></td>
+                    <td id="efGrade"></td>
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Promedio</td>
+                    <td colspan="5" id="averageGrade"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
