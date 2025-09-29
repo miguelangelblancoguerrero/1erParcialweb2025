@@ -7,15 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="loginForm">
-            <img src="Img/descarga.png" alt="Imagen de inicio de sesión" style="width: 300px;">
+    <form id="loginForm">
+        <img src="Img/descarga.png" alt="Imagen de inicio de sesión" style="width: 300px;">
         <h2>Iniciar sesión</h2>
-        <label for="codigoEstudiante">Codigo estudiante:</label>
+
+        <label for="codigo">Código estudiante:</label>
         <input type="text" id="codigo" name="codigo" required>
-        <label for="clave">clave:</label>
+
+        <label for="clave">Clave:</label>
         <input type="password" id="clave" name="clave" required>
-        <button id="loginButton">Iniciar sesión</button>
-    </div>
+
+        <button type="submit">Iniciar sesión</button>
+    </form>
+
+    <div id="mensaje" style="margin-top: 10px;"></div>
 
     <script src="script.js"></script>
 </body>
