@@ -1,34 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const loginButton = document.getElementById('loginButton');
+    const loginButton = document.getElementById('loginForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-    loginButton.addEventListener('click', function() {
-        const codigoEstudiante = document.getElementById('codigoEstudiante').value;
-        const contraseña = document.getElementById('contraseña').value;
+        const codigoEstudiante = document.getElementById('codigo').value;
+        const contraseña = document.getElementById('clave').value;
+        const mensajeDiv = document.getElementById('mensaje').value;
 
-        const data = {
-            codigoEstudiante: codigoEstudiante,
-            contraseña: contraseña
-        };
-
-        fetch('https://24a0dac0-2579-4138-985c-bec2df4bdfcc-00-3unzo70c406dl.riker.replit.dev/login', {
+        try{
+        const response = await fetch('https://24a0dac0-2579-4138-985c-bec2df4bdfcc-00-3unzo70c406dl.riker.replit.dev/', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud.');
-            }
-            return response.json();
-        })
-        .then(userData => {
-            localStorage.setItem('usuario', JSON.stringify(userData));
-            window.location.href = 'homepage.html';
-        })
-        .catch(error => {
-            console.error('Error:', error);
         });
+
+        const data = await response.json();
+        if (data.login === true){
+            localStorage.setItem('codigo', data.codigo);
+            localStorage.setItem('nombre', data.nombre);
+            localStorage.setItem('email', data.email);
+            localStorage.setItem('codigo', data.mensaje);
+
+            mensajeDiv.style.color = 'green';
+            mensajeDiv.textContent = 'Bienvenido, $(data.nombre)';
+
+        }else{
+          mensajeDiv.style.color = 'red';
+          mensajeDiv.textContent = 'codigo o clave incorrectos';  
+        }
+
+
+        }
+        
     });
-});
